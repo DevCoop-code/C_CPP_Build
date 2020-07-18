@@ -24,5 +24,5 @@ Clang is C, C++, Objective-C, Objective-C++ compiler that is compiled in C++ bas
 ## Reference
 ### 1. toolchains
 Set of necessary development tools for build computer program<br>
-The development tools included here are works chainly
+The development tools included here are works chainly<br>
 <img src="images/toolchain.png" width="50%" height="50%">
