@@ -1,7 +1,4 @@
-# C,CPP Workshop
-This place is making C/CPP Library or Test about C, CPP
-<br>
-Using GNU Compiler
+# C,CPP Build Environment in Unix base OS
 
 ## Simple Command
 - When C : gcc -o [outputname] [inputname].c
