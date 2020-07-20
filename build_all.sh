@@ -5,6 +5,13 @@ export sourceFileExtension
 
 echo "=====Build C/C++ using gcc compiler====="
 
+if [ -f output ]; then
+	echo "output directory already exists"
+else
+	$(mkdir output)
+fi
+
+
 # Delete all of old output data
 $(rm -rf output/*)
 
