@@ -5,7 +5,7 @@ export sourceFileExtension
 
 echo "=====Build C/C++ using gcc compiler====="
 
-if [ -f output ]; then
+if [ -d output ]; then
 	echo "output directory already exists"
 else
 	$(mkdir output)
@@ -15,7 +15,7 @@ fi
 # Delete all of old output data
 $(rm -rf output/*)
 
-if [ -f temp ]; then
+if [ -d temp ]; then
 	echo "temp directory already exists"
 	
 	$(rm -rf temp/)
@@ -33,13 +33,13 @@ for sourceFile in ${sourceFileSet[@]}; do
 	sourceFileExtension="${objectFileName##*.}"
 
 	if [ ${sourceFileExtension} == "cpp" ]; then
-		if [ -f ${rootBuildPath}/headers ]; then
+		if [ -d ${rootBuildPath}/headers ]; then
 			g++ -c ${sourceFile} -I ${rootBuildPath}/headers/
 		else	
 			g++ -c ${sourceFile}
 		fi
 	else
-		if [ -f ${rootBuildPath}/headers ]; then
+		if [ -d ${rootBuildPath}/headers ]; then
 			gcc -c ${sourceFile} -I ${rootBuildPath}/headers/
 		else	
 			gcc -c ${sourceFile}
@@ -47,7 +47,7 @@ for sourceFile in ${sourceFileSet[@]}; do
 	fi
 	mv ${objectNameWithoutExtension}.o temp/
 
-	objectFileSet=${objectFileSet}temp/${objectNameWithoutExtension}.o
+	objectFileSet="${objectFileSet} temp/${objectNameWithoutExtension}.o"
 done
 
 if [ ${sourceFileExtension} == 'cpp' ]; then
