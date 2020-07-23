@@ -33,9 +33,17 @@ for sourceFile in ${sourceFileSet[@]}; do
 	sourceFileExtension="${objectFileName##*.}"
 
 	if [ ${sourceFileExtension} == "cpp" ]; then
-		g++ -c ${sourceFile} -I ${rootBuildPath}/headers/
+		if [ -f ${rootBuildPath}/headers ]; then
+			g++ -c ${sourceFile} -I ${rootBuildPath}/headers/
+		else	
+			g++ -c ${sourceFile}
+		fi
 	else
-		gcc -c ${sourceFile} -I ${rootBuildPath}/headers/
+		if [ -f ${rootBuildPath}/headers ]; then
+			gcc -c ${sourceFile} -I ${rootBuildPath}/headers/
+		else	
+			gcc -c ${sourceFile}
+		fi
 	fi
 	mv ${objectNameWithoutExtension}.o temp/
 
