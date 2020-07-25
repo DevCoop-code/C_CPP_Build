@@ -21,3 +21,13 @@ ex] int &num2=num1 <br>
 
 ## 클래스 vs 구조체
 c++에서 클래스와 구조체의 차이는 각각의 변수 및 함수의 접근 허용 범위를 클래스는 별도로 선언해야 한다는 차이
+
+## const 함수
+함수 내에서 멤버변수에 저장된 값을 변경하지 않겠다는 의미의 함수, 따라서 const 선언이 추가된 멤버함수 내에서 멤버변수의 값을 변경하는 코드가 삽입되면 컴파일 에러가 발생함<br>
+ex] int GetX() const; <br>
+const 함수 내에서는 const가 아닌 함수의 호출은 제한됨
+
+## 멤버 이니셜라이져(Member Initializer)를 이용한 초기화
+Ex] Rectangle:Rectangle(const int &x1, const int &y1, const int &x2, const int &y2): upLeft(x1, y1), lowRight(x2, y2) { } <br>
+**: upLeft(x1, y1), lowRight(x2, y2)**가 멤버 이니셜라이져<br>
+*객체 upLeft, lowRight의 생성과정에서 x1과 y1을 인자로 전달받는 생성자를 호출하라*라는 의미
