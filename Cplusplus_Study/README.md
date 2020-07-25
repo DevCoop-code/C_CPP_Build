@@ -31,3 +31,14 @@ const 함수 내에서는 const가 아닌 함수의 호출은 제한됨
 Ex] Rectangle:Rectangle(const int &x1, const int &y1, const int &x2, const int &y2): upLeft(x1, y1), lowRight(x2, y2) { } <br>
 **: upLeft(x1, y1), lowRight(x2, y2)**가 멤버 이니셜라이져<br>
 *객체 upLeft, lowRight의 생성과정에서 x1과 y1을 인자로 전달받는 생성자를 호출하라*라는 의미
+
+## 객체 배열
+객체 기반의 배열 예제<br>
+ex] <br> 
+SoSimple arr[10]; <br>
+SoSimple* ptrArr = new SoSimple[10]; <br>
+(SoSimple은 클래스 이름) <br>
+
+배열을 선언하는 경우에도 객체의 생성자는 호출이 된다 단, 배열의 선언과정에서는 호출할 생성자를 별도 명시는 하지 못함(생성자에 인자를 전달하지 못하기 때문) 즉, 위의  형태로 배열을 생성하기 위해선 아래의 생성자가 반드시 필요하다 <br>
+SoSimple() { } <br>
+배열선언 이후에 각각의 요소를 원하는 값으로 초기화를 원한다면 일일이 초기화의 과정을 별도로 거쳐야 함
