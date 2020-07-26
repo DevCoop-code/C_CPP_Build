@@ -57,15 +57,13 @@ for library in ${libSet[@]}; do
 	libraryNameWithoutExtension="${libraryName%.*}"
 
 	libName=${libraryNameWithoutExtension:3}
-	libraryFileSet="${libraryFileSet} ${libName}"
+	libraryFileSet="${libraryFileSet} -l${libName}"
 done
 
 if [ ${sourceFileExtension} == 'cpp' ]; then
-	g++ -l $libraryFileSet $objectFileSet -o output/main
+	g++ $libraryFileSet $objectFileSet -o output/main
 else
-	gcc -l $libraryFileSet $objectFileSet -o output/main
+	gcc $libraryFileSet $objectFileSet -o output/main
 fi
 
 $(rm -rf temp/)
-
-./output/main
