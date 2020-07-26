@@ -2,6 +2,7 @@
 rootBuildPath=$1
 export objectFileSet
 export sourceFileExtension
+export libraryFileSet
 
 echo "=====Build C/C++ using gcc compiler====="
 
@@ -25,7 +26,7 @@ else
 fi
 
 # Compile the files
-sourceFileSet=$(ls ${rootBuildPath}/sources/*.cpp)
+sourceFileSet=$(ls ${rootBuildPath}/sources/*)
 
 for sourceFile in ${sourceFileSet[@]}; do
 	objectFileName=$(basename ${sourceFile})
@@ -50,13 +51,22 @@ for sourceFile in ${sourceFileSet[@]}; do
 	objectFileSet="${objectFileSet} temp/${objectNameWithoutExtension}.o"
 done
 
+libSet=$(ls ${rootBuildPath}/libs/*)
+for library in ${libSet[@]}; do
+	libraryName=$(basename ${library})
+	libraryNameWithoutExtension="${libraryName%.*}"
+
+	libName=${libraryNameWithoutExtension:3}
+	echo ${libName}
+	libraryFileSet="${libraryFileSet} ${libName}"
+done
+
 if [ ${sourceFileExtension} == 'cpp' ]; then
-	g++ $objectFileSet -o output/main
+	g++ -l $libraryFileSet $objectFileSet -o output/main
 else
-	gcc $objectFileSet -o output/main
+	gcc -l $libraryFileSet $objectFileSet -o output/main
 fi
 
 $(rm -rf temp/)
 
 ./output/main
-
