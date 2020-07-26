@@ -57,7 +57,6 @@ for library in ${libSet[@]}; do
 	libraryNameWithoutExtension="${libraryName%.*}"
 
 	libName=${libraryNameWithoutExtension:3}
-	echo ${libName}
 	libraryFileSet="${libraryFileSet} ${libName}"
 done
 
