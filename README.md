@@ -8,3 +8,5 @@ executable file will be located 'output' directory
       - ***.c, ***.c
     - [headers]
       - ***.h, ***.h
+    - [libs]
+      - ***.a, ***.a
