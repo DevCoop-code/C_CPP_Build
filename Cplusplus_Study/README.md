@@ -44,3 +44,10 @@ SoSimple() { } <br>
 배열선언 이후에 각각의 요소를 원하는 값으로 초기화를 원한다면 일일이 초기화의 과정을 별도로 거쳐야 함
 
 ## 복사 생성자
+### explicit
+'SoSimple sim2 = sim1' 은 'SoSimple sim2(sim1)'로 묵시적 변환이 된다. 하지만 이러한 묵시적 변환이 싫은경우 이를 막기 위해 explicit 키워드를 사용해 막을 수 있다.
+복사 생성자 지정시 **explicit** 키워드를 사용하면 된다.<br>
+explicit SoSimple(constt SoSimple &copy) : num1(copy.num1), num2(copy.num2) {  }
+### 깊은 복사와 얕은 복사
+디폴트 복사 생성자는 멤버 대 멤버의 복사를 진행함. 그리고 이러한 방식의 복사를 가리켜 **얕은 복사(shallow copy)**라 함. 하지만 이는 멤버변수가 힙의 메모리 공간을 참조하는 경우에 문제가 발생하게 됨(Project : Cplusplus_Study/5-2.ShallowCopyError)<br>
+![shallowcopy_Error](images/shallowcopy.png)
