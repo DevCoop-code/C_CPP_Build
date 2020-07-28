@@ -51,14 +51,16 @@ for sourceFile in ${sourceFileSet[@]}; do
 	objectFileSet="${objectFileSet} temp/${objectNameWithoutExtension}.o"
 done
 
-libSet=$(ls ${rootBuildPath}/libs/*)
-for library in ${libSet[@]}; do
-	libraryName=$(basename ${library})
-	libraryNameWithoutExtension="${libraryName%.*}"
+if [ -d ${rootBuildPath}/libs ]; then
+	libSet=$(ls ${rootBuildPath}/libs/*)
+	for library in ${libSet[@]}; do
+		libraryName=$(basename ${library})
+		libraryNameWithoutExtension="${libraryName%.*}"
 
-	libName=${libraryNameWithoutExtension:3}
-	libraryFileSet="${libraryFileSet} -l${libName}"
-done
+		libName=${libraryNameWithoutExtension:3}
+		libraryFileSet="${libraryFileSet} -l${libName}"
+	done
+fi
 
 if [ ${sourceFileExtension} == 'cpp' ]; then
 	g++ $libraryFileSet $objectFileSet -o output/main
