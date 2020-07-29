@@ -51,3 +51,6 @@ explicit SoSimple(constt SoSimple &copy) : num1(copy.num1), num2(copy.num2) {  }
 ### 깊은 복사와 얕은 복사
 디폴트 복사 생성자는 멤버 대 멤버의 복사를 진행함. 그리고 이러한 방식의 복사를 가리켜 **얕은 복사(shallow copy)**라 함. 하지만 이는 멤버변수가 힙의 메모리 공간을 참조하는 경우에 문제가 발생하게 됨(Project : Cplusplus_Study/5-2.ShallowCopyError)<br>
 ![shallowcopy_Error](../images/shallowcopy.png)
+<br>
+깊은 복사(deep copy)를 하면 멤버 뿐만 아니라 포인터로 참조하는 대상까지 깊게 복사하는 것을 깊은 복사라고 함(Project : Cplusplus_Study/5-3.DeepCopy)
+![shallowcopy_Error](../images/deepcopy.png)
