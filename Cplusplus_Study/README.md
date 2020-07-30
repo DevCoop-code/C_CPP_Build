@@ -54,3 +54,9 @@ explicit SoSimple(constt SoSimple &copy) : num1(copy.num1), num2(copy.num2) {  }
 <br>
 깊은 복사(deep copy)를 하면 멤버 뿐만 아니라 포인터로 참조하는 대상까지 깊게 복사하는 것을 깊은 복사라고 함(Project : Cplusplus_Study/5-3.DeepCopy)
 ![shallowcopy_Error](../images/deepcopy.png)
+
+### 복사 생성자 호출 시점
+1. 기존에 생성된 객체를 이용해 새로운 객체를 초기화 하는 경우
+2. Call-by-value 방식의 함수 호출 과정에서 객체를 인자로 전달하는 경우
+3. 객체를 반환하되, 참조형으로 반환하지 않는 경우
+<br>위의 3가지 경우 공통점은 객체를 새로 생성함과 동시에 동일한 자료형의 객체로 초기화해야 함을 알 수 있음
