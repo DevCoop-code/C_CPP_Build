@@ -43,6 +43,10 @@ SoSimple* ptrArr = new SoSimple[10]; <br>
 SoSimple() { } <br>
 배열선언 이후에 각각의 요소를 원하는 값으로 초기화를 원한다면 일일이 초기화의 과정을 별도로 거쳐야 함
 
+## Self-Reference의 반환
+Self-Reference란 객체 자신을 참조할 수 있는 참조자를 의미
+(Project: Cplusplus_Study/4-5.SelfReference)
+
 ## 복사 생성자
 ### explicit
 'SoSimple sim2 = sim1' 은 'SoSimple sim2(sim1)'로 묵시적 변환이 된다. 하지만 이러한 묵시적 변환이 싫은경우 이를 막기 위해 explicit 키워드를 사용해 막을 수 있다.
