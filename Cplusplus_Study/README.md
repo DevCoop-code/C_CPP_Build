@@ -70,3 +70,8 @@ explicit SoSimple(constt SoSimple &copy) : num1(copy.num1), num2(copy.num2) {  }
 - 임시객체의 소멸시기
   - 임시객체는 다음 행으로 넘어가면 바로 소멸되어 버림
   - 참조자에 참조되는 임시객체는 바로 소멸되지 않음
+
+## 클래스의 friend 선언
+friend 선언은 private 멤버의 접근을 허용하는 선언 <br>
+- A 클래스가 B 클래스를 대상으로 friend 선언을 하면, B클래스는 A 클래스의 private 멤버에 직접 접근이 가능
+- 단, A 클래스도 B 클래스의 private 멤버의 접근이 가능하려면 B 클래스가 A 클래스를 대상으로 friend 선언을 해줘야 함
