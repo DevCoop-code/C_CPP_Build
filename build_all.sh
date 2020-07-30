@@ -68,4 +68,6 @@ else
 	gcc $libraryFileSet $objectFileSet -o output/main
 fi
 
+echo "===DONE==="
+
 $(rm -rf temp/)
