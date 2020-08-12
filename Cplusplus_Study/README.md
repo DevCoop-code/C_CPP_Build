@@ -75,3 +75,12 @@ explicit SoSimple(constt SoSimple &copy) : num1(copy.num1), num2(copy.num2) {  }
 friend 선언은 private 멤버의 접근을 허용하는 선언 <br>
 - A 클래스가 B 클래스를 대상으로 friend 선언을 하면, B클래스는 A 클래스의 private 멤버에 직접 접근이 가능
 - 단, A 클래스도 B 클래스의 private 멤버의 접근이 가능하려면 B 클래스가 A 클래스를 대상으로 friend 선언을 해줘야 함
+
+## static
+- 전역변수에 선언된 static
+  - 선언된 파일 내에서만 참조를 허용
+- 함수내에 선언된 static
+  - 한번만 초기화되고, 지역변수와 달리 함수를 빠져나가도 소멸되지 않음
+
+### static 멤버변수(클래스 변수)
+static 멤버변수는 클래스 변수라고 함, 일반적인 멤버변수와 달리 클래스당 하나씩만 생성됨
