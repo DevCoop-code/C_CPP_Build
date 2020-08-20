@@ -51,7 +51,7 @@ Self-Reference란 객체 자신을 참조할 수 있는 참조자를 의미
 ### explicit
 'SoSimple sim2 = sim1' 은 'SoSimple sim2(sim1)'로 묵시적 변환이 된다. 하지만 이러한 묵시적 변환이 싫은경우 이를 막기 위해 explicit 키워드를 사용해 막을 수 있다.
 복사 생성자 지정시 **explicit** 키워드를 사용하면 된다.<br>
-explicit SoSimple(constt SoSimple &copy) : num1(copy.num1), num2(copy.num2) {  }
+explicit SoSimple(const SoSimple &copy) : num1(copy.num1), num2(copy.num2) {  }
 ### 깊은 복사와 얕은 복사
 디폴트 복사 생성자는 멤버 대 멤버의 복사를 진행함. 그리고 이러한 방식의 복사를 가리켜 **얕은 복사(shallow copy)**라 함. 하지만 이는 멤버변수가 힙의 메모리 공간을 참조하는 경우에 문제가 발생하게 됨(Project : Cplusplus_Study/5-2.ShallowCopyError)<br>
 ![shallowcopy_Error](../images/shallowcopy.png)
@@ -84,3 +84,6 @@ friend 선언은 private 멤버의 접근을 허용하는 선언 <br>
 
 ### static 멤버변수(클래스 변수)
 static 멤버변수는 클래스 변수라고 함, 일반적인 멤버변수와 달리 클래스당 하나씩만 생성됨
+
+## 객체 포인터의 참조관계
+C++에서 AAA형 포인터 변수는 AAA객체 또는 AAA를 직접 혹은 간접적으로 쌍속하는 모든 객체를 가리킬 수 있음(객체의 주소 값을 저장 할 수 있음)
