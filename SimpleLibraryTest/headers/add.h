@@ -1,0 +1,1 @@
+int add(int quant1, int quant2);
